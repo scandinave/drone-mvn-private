@@ -28,6 +28,11 @@ Deno.test("It should generate correct settings.xml", () => {
                     <username>foo</username>
                     <password>bar</password>
                 </server>
+                <server>
+                    <id>private</id>
+                    <username>foo</username>
+                    <password>bar</password>
+                </server>
             </servers>
             <profiles>
                 <profile>

@@ -51,6 +51,11 @@ export class SettingsGenerator {
           <username>${this.username}</username>
           <password>${this.password}</password>
         </server>
+        <server>
+          <id>private</id>
+          <username>${this.username}</username>
+          <password>${this.password}</password>
+        </server>
       </servers>
     `;
   }
