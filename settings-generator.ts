@@ -13,7 +13,13 @@ export class SettingsGenerator {
      * @param username The private maven server username
      * @param password The private maven server password
      */
-  constructor(url: string, urlReleases: string, urlSnapshots: string, username: string, password: string) {
+  constructor(
+    url: string,
+    urlReleases: string,
+    urlSnapshots: string,
+    username: string,
+    password: string,
+  ) {
     this.url = url;
     this.urlSnapshots = urlSnapshots;
     this.urlReleases = urlReleases;
@@ -24,7 +30,7 @@ export class SettingsGenerator {
   generate() {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <localRepository>/drone/src/.m2</localRepository>
+  <localRepository>${Deno.env.get("PWD")}</localRepository>
   ${this.generateServer().replaceAll(" ", "").replaceAll("\\n", "")}
   ${this.generateProfile().replaceAll(" ", "").replaceAll("\\n", "")}
   ${this.generateActiveProfile().replaceAll(" ", "").replaceAll("\\n", "")}
