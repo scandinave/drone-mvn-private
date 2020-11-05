@@ -15,4 +15,4 @@ RUN chown deno:deno * && chmod +x *
 # Compile the main app so that it doesn't need to be compiled each startup/entry.
 RUN deno cache index.ts
 
-CMD ["run", "--allow-env", "--allow-write", "index.ts"]
+CMD ["run", "--allow-env", "--allow-write", "/plugin/index.ts"]

@@ -125,8 +125,8 @@ export class SettingsGenerator {
   generateDeploymentRepository() {
     return `
       <properties>
-        <altSnapshotDeploymentRepository>snapshots::${this.urlSnapshots}</altSnapshotDeploymentRepository>
-        <altReleaseDeploymentRepository>releases::${this.urlReleases}</altReleaseDeploymentRepository>
+        <altSnapshotDeploymentRepository>snapshots::default::${this.urlSnapshots}</altSnapshotDeploymentRepository>
+        <altReleaseDeploymentRepository>releases::default::${this.urlReleases}</altReleaseDeploymentRepository>
       </properties>
     `;
   }

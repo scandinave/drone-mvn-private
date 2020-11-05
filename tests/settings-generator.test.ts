@@ -69,8 +69,8 @@ Deno.test("It should generate correct settings.xml", () => {
                         </pluginRepository>
                     </pluginRepositories>
                     <properties>
-                        <altSnapshotDeploymentRepository>snapshots::http://example.com/snapshots</altSnapshotDeploymentRepository>
-                        <altReleaseDeploymentRepository>releases::http://example.com/releases</altReleaseDeploymentRepository>
+                        <altSnapshotDeploymentRepository>snapshots::default::http://example.com/snapshots</altSnapshotDeploymentRepository>
+                        <altReleaseDeploymentRepository>releases::default::http://example.com/releases</altReleaseDeploymentRepository>
                     </properties>
                 </profile>
             </profiles>
