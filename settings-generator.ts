@@ -4,6 +4,7 @@ export class SettingsGenerator {
   private readonly urlReleases: string;
   private readonly username: string;
   private readonly password: string;
+  private readonly m2: string;
 
   /**
      * Initialize a generator
@@ -19,18 +20,20 @@ export class SettingsGenerator {
     urlSnapshots: string,
     username: string,
     password: string,
+    m2: string,
   ) {
     this.url = url;
     this.urlSnapshots = urlSnapshots;
     this.urlReleases = urlReleases;
     this.username = username;
     this.password = password;
+    this.m2 = m2;
   }
 
   generate() {
     return `<?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-  <localRepository>${Deno.env.get("PWD")}</localRepository>
+  <localRepository>${this.m2}</localRepository>
   ${this.generateServer().replaceAll(" ", "").replaceAll("\\n", "")}
   ${this.generateProfile().replaceAll(" ", "").replaceAll("\\n", "")}
   ${this.generateActiveProfile().replaceAll(" ", "").replaceAll("\\n", "")}

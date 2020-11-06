@@ -13,6 +13,7 @@ The following parameters are used to configure the plugin:
 - `url`: the maven repository from where dependencies are download
 - `url_snapshots`: the maven repository where the snapshot are push
 - `url_releases`: the maven repository where the releases are push
+- `m2_location`: Set the location of the .m2 repository. Default to where the program is execute. 
 - `debug`: If true, display the generated settings.xml in the console.
 
 
@@ -32,7 +33,7 @@ pipeline:
       url: http://example.com/maven-public
       url_snapshots: http://example.com/maven_snapshots
       url_releases: http://example.com/maven_releases
-
+      m2_location: .m2
   deploy:
     image: maven:3-alpine
     commands:

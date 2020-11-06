@@ -3,6 +3,7 @@ import { SettingsGenerator } from "./settings-generator.ts";
 
 const username = Deno.env.get("PLUGIN_USERNAME");
 const password = Deno.env.get("PLUGIN_PASSWORD");
+const m2 = Deno.env.get("PLUGIN_M2_LOCATION") ?? Deno.env.get("PWD");
 const url = Deno.env.get("PLUGIN_URL");
 const url_snapshots = Deno.env.get("PLUGIN_URL_SNAPSHOTS");
 const url_releases = Deno.env.get("PLUGIN_URL_RELEASES");
@@ -41,6 +42,10 @@ if (!url_releases) {
   throw Error("You must set a repository releases url");
 }
 
+if(!m2) {
+  throw new Error("Context path can not be determined. You must specified a m2 location");
+}
+
 log.info("Generating settings.xml...");
 const generator = new SettingsGenerator(
   url,
@@ -48,6 +53,7 @@ const generator = new SettingsGenerator(
   url_snapshots,
   username,
   password,
+  m2
 );
 const result = generator.generate();
 
